@@ -1,5 +1,7 @@
 body {
     background-color: #e1efff;
+    background: url(웹배경.png);
+    background-size: cover;
     color: rgb(0, 0, 0);
 
 }
