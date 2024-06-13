@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const userEmail = localStorage.getItem('userEmail');
-    if (!userEmail) {
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    if (!loggedInUser) {
         window.location.href = 'login.html';
         return;
     }
@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const content = contentInput.value;
 
         let diaries = JSON.parse(localStorage.getItem('diaries')) || [];
-        diaries.push({ email: userEmail, title, content, date: new Date() });
+        const id = diaries.length ? diaries[diaries.length - 1].id + 1 : 1;
+        diaries.push({ id, email: loggedInUser.email, title, content, date: new Date() });
         localStorage.setItem('diaries', JSON.stringify(diaries));
 
         alert('일기가 저장되었습니다.');
