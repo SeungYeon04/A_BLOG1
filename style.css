@@ -1,10 +1,13 @@
 body {
-    background-color: #e1efff;
+    background-color: #6db1ff;
     background: url(웹배경.png);
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
     color: rgb(0, 0, 0);
-
+    height: 100vh;
 }
+
 
 #diary-entries {
     display: flex;
