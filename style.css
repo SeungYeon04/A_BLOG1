@@ -8,6 +8,9 @@ body {
     height: 100vh;
 }
 
+.container {
+    display: block; margin: 10% auto;
+}
 
 #diary-entries {
     display: flex;
