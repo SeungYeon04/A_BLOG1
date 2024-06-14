@@ -5,10 +5,6 @@
     <title>글을 입력하세요</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="font.css">
-    <script type="module">
-        import { db } from 'firebase-config.js';
-        window.db = db;
-    </script>
 </head>
 <body>
     <h1 style="color:aliceblue">Diary App</h1>
@@ -19,6 +15,6 @@
             <button type="submit">Save</button>
         </form>
     </div>
-    <script src="diary.js"></script>
+    <script src="diary.js" type="module"></script>
 </body>
 </html>

@@ -1,4 +1,5 @@
-
+import { collection, addDoc, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { db } from './firebase-config.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
@@ -11,17 +12,45 @@ document.addEventListener('DOMContentLoaded', () => {
     const titleInput = document.getElementById('title');
     const contentInput = document.getElementById('content');
 
-    diaryForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        const title = titleInput.value;
-        const content = contentInput.value;
+    if (diaryForm) {
+        diaryForm.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const title = titleInput.value;
+            const content = contentInput.value;
 
-        let diaries = JSON.parse(localStorage.getItem('diaries')) || [];
-        const id = diaries.length ? diaries[diaries.length - 1].id + 1 : 1;
-        diaries.push({ id, email: loggedInUser.email, title, content, date: new Date() });
-        localStorage.setItem('diaries', JSON.stringify(diaries));
+            try {
+                const diaryRef = collection(db, 'diaries');
+                await addDoc(diaryRef, { email: loggedInUser.email, title, content, date: new Date() });
+                alert('일기가 저장되었습니다.');
+                window.location.href = 'index.html';
+            } catch (error) {
+                console.error('Error saving diary:', error);
+                alert('일기 저장 중 오류가 발생했습니다.');
+            }
+        });
+    }
 
-        alert('일기가 저장되었습니다.');
-        window.location.href = 'index.html';
-    });
+    loadDiaries(loggedInUser.email);
 });
+
+async function loadDiaries(email) {
+    const entriesList = document.getElementById('entries-list');
+    if (!entriesList) return;
+
+    try {
+        const diariesRef = collection(db, 'diaries');
+        const q = query(diariesRef, where('email', '==', email));
+        const querySnapshot = await getDocs(q);
+
+        entriesList.innerHTML = '';
+        querySnapshot.forEach((doc) => {
+            const entry = doc.data();
+            const entryElement = document.createElement('li');
+            entryElement.innerHTML = `<h3>${entry.title}</h3><p>${entry.content}</p><p>${new Date(entry.date.seconds * 1000).toLocaleString()}</p>`;
+            entriesList.appendChild(entryElement);
+        });
+    } catch (error) {
+        console.error('Error loading diaries:', error);
+        alert('일기 불러오기 중 오류가 발생했습니다.');
+    }
+}
