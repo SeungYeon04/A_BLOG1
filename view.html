@@ -5,23 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Entry</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="font.css">
+    <script type="module">
+        import { db } from 'firebase-config.js';
+        window.db = db;
+    </script>
 </head>
 <body>
-    <div class="container" style="background-color: white;">
+    <div class="container">
         <h1 id="entry-title">Entry Title</h1>
         <p id="entry-content">Entry Content</p>
         <button id="back-btn">Back</button>
     </div>
-    <script src="view.js"></script>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 0;
-        }
-    </style>
+    <script type="module" src="view.js"></script>
 </body>
 </html>
 

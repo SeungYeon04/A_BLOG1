@@ -4,20 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입</title>
-    <script type="module">
-        import { db } from './firebase-config.js';
-        window.db = db; // db 객체를 전역으로 설정하여 다른 스크립트에서 접근 가능하게 함
-    </script>
-    <script src="signup.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>회원가입</h1>
-    <form id="signup-form">
-        <input type="text" id="username" placeholder="사용자명" required><br>
-        <input type="email" id="email" placeholder="이메일" required><br>
-        <input type="password" id="password" placeholder="비밀번호" required><br>
-        <button type="submit">가입</button>
-        <button onclick="location.href='login.html'">로그인</button>
-    </form>
+    <div class="container">
+        <h1>회원가입</h1>
+        <form id="signup-form">
+            <input type="text" id="username" placeholder="사용자명" required><br>
+            <input type="email" id="email" placeholder="이메일" required><br>
+            <input type="password" id="password" placeholder="비밀번호" required><br>
+            <button type="submit">가입</button>
+        </form>
+    </div>
+    <script type="module" src="signup.js"></script>
 </body>
 </html>

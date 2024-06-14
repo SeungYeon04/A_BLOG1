@@ -7,27 +7,9 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="font.css">
     <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-        import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "YOUR_AUTH_DOMAIN",
-            projectId: "YOUR_PROJECT_ID",
-            storageBucket: "YOUR_STORAGE_BUCKET",
-            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-            appId: "YOUR_APP_ID",
-            measurementId: "YOUR_MEASUREMENT_ID"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-        window.db = db; // db 객체를 전역으로 설정하여 다른 스크립트에서 접근 가능하게 함
+        import { db } from 'firebase-config.js';
+        window.db = db;
     </script>
-    <script src="app.js" defer></script>
 </head>
 <body>
     <button onclick="location.href='input.html'">글 쓰기</button><br>
@@ -37,8 +19,13 @@
     <div id="diary-entries">  
         <ul id="entries-list"></ul>
     </div>
+    <style>
+        body {
+            color: aliceblue;
+        }
+    </style>
+    <script src="app.js"></script>
 </body>
 </html>
-
 
 

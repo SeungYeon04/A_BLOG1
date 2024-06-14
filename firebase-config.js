@@ -1,19 +1,18 @@
-// Import the functions you need from the SDKs you need
+// firebase-config.js
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_STORAGE_BUCKET",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID",
-    measurementId: "YOUR_MEASUREMENT_ID"
+  apiKey: "AIzaSyAZaHsCaDQJryc_wTRf7uCCtUaF1bU3rwc",
+  authDomain: "tlqkf-59331.firebaseapp.com",
+  projectId: "tlqkf-59331",
+  storageBucket: "tlqkf-59331.appspot.com",
+  messagingSenderId: "21635499627",
+  appId: "1:21635499627:web:764ab6955c65c863d6532e",
+  measurementId: "G-2YTD2EB9B1"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+
 export { db };

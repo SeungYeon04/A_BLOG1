@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
-    <script src="login.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button onclick="location.href='signup.html'">회원가입</button>
-    <h1>로그인</h1>
-    <form id="login-form">
-        <input type="email" id="email" placeholder="이메일" required><br>
-        <input type="password" id="password" placeholder="비밀번호" required><br>
-        <button type="submit">로그인</button>
-    </form>
+    <div class="container">
+        <button onclick="location.href='signup.html'">회원가입</button>
+        <h1>로그인</h1>
+        <form id="login-form">
+            <input type="email" id="email" placeholder="이메일" required><br>
+            <input type="password" id="password" placeholder="비밀번호" required><br>
+            <button type="submit">로그인</button>
+        </form>
+    </div>
+    <script type="module" src="login.js"></script>
 </body>
 </html>
