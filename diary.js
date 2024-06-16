@@ -46,7 +46,16 @@ async function loadDiaries(email) {
         querySnapshot.forEach((doc) => {
             const entry = doc.data();
             const entryElement = document.createElement('li');
-            entryElement.innerHTML = `<h3>${entry.title}</h3><p>${entry.content}</p><p>${new Date(entry.date.seconds * 1000).toLocaleString()}</p>`;
+            entryElement.innerHTML = `
+                <h3>${entry.title}</h3>
+                <p>${entry.content}</p>
+                <p>${new Date(entry.date.seconds * 1000).toLocaleString()}</p>
+                <button class="view-btn" data-id="${doc.id}">View</button>
+            `;
+            entryElement.querySelector('.view-btn').addEventListener('click', () => {
+                localStorage.setItem('currentEntryId', doc.id);
+                window.location.href = 'view.html';
+            });
             entriesList.appendChild(entryElement);
         });
     } catch (error) {

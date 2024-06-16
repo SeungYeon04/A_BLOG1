@@ -3,20 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>토끼일기</title>
+    <title>View Entry</title>
     <link rel="stylesheet" href="style.css">
-    <script type="module">
-        import { db } from 'firebase-config.js';
-        window.db = db;
-    </script>
+    <link rel="stylesheet" href="font.css">
 </head>
 <body>
     <div class="container">
         <h1 id="entry-title">Entry Title</h1>
         <p id="entry-content">Entry Content</p>
+        <button id="delete-btn">Delete</button>
         <button id="back-btn">Back</button>
     </div>
-    <script type="module" src="view.js"></script>
+    <script src="view.js" type="module"></script>
 </body>
 </html>
 
