@@ -6,16 +6,23 @@ body {
     background-position: top;
     color: rgb(0, 0, 0);
     height: 100vh;
+
+    
 }
 
 .container {
     display: block; margin: 10% auto;
+    
 }
 
 #diary-entries {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    margin-left: 40%; margin-right: 40%; 
+    width: center;   
+     
 }
 
 h1, h2, h3, h4 {
